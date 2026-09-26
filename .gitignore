@@ -1,6 +1,8 @@
-﻿# Visual Studio
+# Visual Studio
 .vs/
 
 # .NET build output
 bin/
 obj/
+Traffic/TemplateTrafficPlugin/TemplateTrafficPlugin/bin/
+Traffic/TemplateTrafficPlugin/TemplateTrafficPlugin/obj/
