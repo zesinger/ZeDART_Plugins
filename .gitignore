@@ -1,6 +1,6 @@
-﻿################################################################################
-# Ce fichier .gitignore a été automatiquement créé par Microsoft(R) Visual Studio.
-################################################################################
+﻿# Visual Studio
+.vs/
 
-/.vs/ZeDART_Plugins/FileContentIndex/b291e93e-47d0-45a9-81e1-94b63fcb4be3.vsidx
-/.vs/ZeDART_Plugins/FileContentIndex/138a0b85-43f6-4215-8379-ddc29e18b8bb.vsidx
+# .NET build output
+bin/
+obj/

@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("TemplateTrafficPlugin")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Release")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+f96065638c293cf3769b51bb3ffc8e0f9e9eb209")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+d0d0da2640c37084c244c8a479b0ec502aa14964")]
 [assembly: System.Reflection.AssemblyProductAttribute("TemplateTrafficPlugin")]
 [assembly: System.Reflection.AssemblyTitleAttribute("TemplateTrafficPlugin")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
