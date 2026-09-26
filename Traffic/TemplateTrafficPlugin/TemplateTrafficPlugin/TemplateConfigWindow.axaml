@@ -1,0 +1,62 @@
+﻿<!--
+==============================================================================
+FR : FENÊTRE DE CONFIGURATION — OPTIONNELLE
+     Ce fichier XAML définit l'apparence de la fenêtre affichée avant le
+     démarrage de ZeDART pour demander à l'utilisateur les paramètres propres
+     au plugin. Modifiez ou remplacez son contenu selon les besoins de votre
+     source de trafic. Supprimez ce fichier si aucune configuration préalable
+     n'est nécessaire.
+
+EN : CONFIGURATION WINDOW — OPTIONAL
+     This XAML file defines the appearance of the window displayed before
+     ZeDART starts to collect plugin-specific settings from the user.
+     Modify or replace its contents as required by your traffic source.
+     Remove this file if no pre-start configuration is needed.
+
+ES : VENTANA DE CONFIGURACIÓN — OPCIONAL
+     Este archivo XAML define la apariencia de la ventana mostrada antes del
+     inicio de ZeDART para solicitar al usuario los parámetros propios del
+     plugin. Modifique o sustituya su contenido según las necesidades de su
+     fuente de tráfico. Elimine este archivo si no se necesita configuración.
+
+DE : KONFIGURATIONSFENSTER — OPTIONAL
+     Diese XAML-Datei definiert das Aussehen des Fensters, das vor dem Start
+     von ZeDART die Plugin-Einstellungen vom Benutzer abfragt. Passen oder
+     ersetzen Sie den Inhalt entsprechend Ihrer Verkehrsquelle. Entfernen Sie
+     diese Datei, wenn keine vorherige Konfiguration benötigt wird.
+==============================================================================
+-->
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        x:Class="TemplateTrafficPlugin.TemplateConfigWindow"
+        Title="Template Traffic Plugin - Configuration"
+        Width="450"
+        Height="180"
+        CanResize="False"
+        WindowStartupLocation="CenterOwner">
+
+    <StackPanel Margin="20" Spacing="10">
+
+        <TextBlock Text="Traffic source:" />
+
+        <TextBox x:Name="TrafficSourceTextBox"
+                 Watermark="Enter the traffic source..." />
+
+        <StackPanel Orientation="Horizontal"
+                    HorizontalAlignment="Right"
+                    Spacing="10"
+                    Margin="0,10,0,0">
+
+            <Button Content="OK"
+                    Width="80"
+                    Click="OnOkClick" />
+
+            <Button Content="Cancel"
+                    Width="80"
+                    Click="OnCancelClick" />
+
+        </StackPanel>
+
+    </StackPanel>
+
+</Window>

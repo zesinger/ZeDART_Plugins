@@ -1,0 +1,21 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+	<PropertyGroup>
+		<TargetFramework>net8.0</TargetFramework>
+		<ImplicitUsings>enable</ImplicitUsings>
+		<Nullable>enable</Nullable>
+	</PropertyGroup>
+
+	<ItemGroup>
+		<PackageReference Include="Avalonia" Version="11.3.22" />
+		<PackageReference Include="Avalonia.Desktop" Version="11.3.22" />
+	</ItemGroup>
+	
+	<ItemGroup>
+		<Reference Include="ZeDART.Contracts">
+			<HintPath>lib\ZeDART.Contracts.dll</HintPath>
+			<Private>false</Private>
+		</Reference>
+	</ItemGroup>
+
+</Project>

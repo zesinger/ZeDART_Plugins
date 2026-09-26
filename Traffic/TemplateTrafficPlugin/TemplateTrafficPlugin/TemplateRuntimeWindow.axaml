@@ -1,0 +1,65 @@
+﻿<!--
+==============================================================================
+FR : FENÊTRE RUNTIME — OPTIONNELLE
+     Ce fichier XAML définit l'interface que le plugin peut afficher pendant
+     l'exécution de ZeDART. Elle peut servir à présenter des informations ou
+     à envoyer des commandes au fournisseur de trafic.
+     Par exemple, pour un plugin de replay, on pourra implémenter une interface
+     avec lecture, pause, vitesse de lecture, déplacement dans le fichier, etc.
+     Modifiez ou remplacez son contenu selon vos besoins. Supprimez ce fichier
+     si votre plugin n'a pas besoin d'interface runtime.
+
+EN : RUNTIME WINDOW — OPTIONAL
+     This XAML file defines the interface that the plugin can display while
+     ZeDART is running. It can display information or send commands to the
+     traffic provider.
+     For example, a replay plugin could provide controls for play, pause,
+     playback speed, seeking through the file, etc.
+     Modify or replace its contents as needed. Remove this file if your plugin
+     does not need a runtime interface.
+
+ES : VENTANA RUNTIME — OPCIONAL
+     Este archivo XAML define la interfaz que el plugin puede mostrar durante
+     la ejecución de ZeDART. Puede mostrar información o enviar comandos al
+     proveedor de tráfico.
+     Por ejemplo, un plugin de reproducción podría incluir controles de
+     reproducción, pausa, velocidad de reproducción, desplazamiento por el
+     archivo, etc.
+     Modifique o sustituya su contenido según sus necesidades. Elimine este
+     archivo si su plugin no necesita una interfaz runtime.
+
+DE : RUNTIME-FENSTER — OPTIONAL
+     Diese XAML-Datei definiert die Oberfläche, die das Plugin während der
+     Ausführung von ZeDART anzeigen kann. Sie kann Informationen darstellen
+     oder Befehle an den Verkehrsdatenanbieter senden.
+     Ein Replay-Plugin könnte beispielsweise Bedienelemente für Wiedergabe,
+     Pause, Wiedergabegeschwindigkeit, Navigation innerhalb der Datei usw.
+     bereitstellen.
+     Passen oder ersetzen Sie den Inhalt nach Bedarf. Entfernen Sie diese Datei,
+     wenn Ihr Plugin keine Runtime-Oberfläche benötigt.
+==============================================================================
+-->
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        x:Class="TemplateTrafficPlugin.TemplateRuntimeWindow"
+        Title="Template Traffic Plugin"
+        Width="400"
+        Height="180"
+        CanResize="False"
+        WindowStartupLocation="CenterOwner">
+
+    <StackPanel Margin="20" Spacing="10">
+
+        <TextBlock Text="Traffic source:" />
+
+        <TextBlock x:Name="TrafficSourceTextBlock"
+                   FontWeight="Bold" />
+
+        <Button Content="Clear traffic"
+                HorizontalAlignment="Left"
+                Margin="0,10,0,0"
+                Click="OnClearTrafficClick" />
+
+    </StackPanel>
+
+</Window>
