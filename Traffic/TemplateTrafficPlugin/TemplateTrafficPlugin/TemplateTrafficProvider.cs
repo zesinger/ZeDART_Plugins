@@ -133,6 +133,27 @@ public sealed class TemplateTrafficProvider : IZeDartRuntimeUI
     // DE : ERFORDERLICH — Ereignis zum Senden einer Verkehrsaktualisierung an ZeDART.
     public event Action<TrafficUpdate>? TrafficAvailable;
 
+    // FR : OBLIGATOIRE — Événement utilisé pour demander à ZeDART de supprimer
+    //      une piste précise. Le provider doit l'émettre lorsqu'il considère
+    //      qu'un TrackId précédemment fourni n'existe plus.
+    //      À ne pas confondre avec TrafficReset, qui supprime toutes les pistes.
+    //
+    // EN : MANDATORY — Event used to ask ZeDART to remove a specific track.
+    //      The provider must raise it when a previously supplied TrackId
+    //      is no longer considered to exist.
+    //      Do not confuse it with TrafficReset, which removes all tracks.
+    //
+    // ES : OBLIGATORIO — Evento utilizado para pedir a ZeDART que elimine
+    //      una pista concreta. El proveedor debe emitirlo cuando considere
+    //      que un TrackId enviado anteriormente ya no existe.
+    //      No debe confundirse con TrafficReset, que elimina todas las pistas.
+    //
+    // DE : ERFORDERLICH — Ereignis, mit dem ZeDART zum Entfernen einer bestimmten
+    //      Spur aufgefordert wird. Der Provider muss es auslösen, wenn eine zuvor
+    //      gelieferte TrackId nicht mehr als vorhanden gilt.
+    //      Nicht mit TrafficReset verwechseln, das alle Spuren entfernt.
+    public event Action<TrafficRemoval>? TrafficRemoved;
+    
     // FR : OBLIGATOIRE — Demande à ZeDART d'effacer le trafic fourni par ce plugin.
     // EN : MANDATORY — Tells ZeDART to clear the traffic supplied by this plugin.
     // ES : OBLIGATORIO — Indica a ZeDART que borre el tráfico suministrado por este plugin.
@@ -423,6 +444,15 @@ public sealed class TemplateTrafficProvider : IZeDartRuntimeUI
         TrafficAvailable?.Invoke(update);
     }
 
+    // FR : Appelez cette méthode lorsqu'une piste précédemment envoyée doit être supprimée de ZeDART.
+    // EN : Call this method when a previously sent track must be removed from ZeDART.
+    // ES : Llame a este método cuando una pista enviada anteriormente deba eliminarse de ZeDART.
+    // DE : Rufen Sie diese Methode auf, wenn eine zuvor gesendete Spur aus ZeDART entfernt werden muss.
+    private void RemoveTraffic(string trackId)
+    {
+        TrafficRemoved?.Invoke(new TrafficRemoval(trackId, DateTimeOffset.UtcNow.ToUnixTimeSeconds()));
+    }
+    
     // FR : OPTIONNEL — Exemple d'une commande envoyée par la fenêtre runtime
     //      au fournisseur de trafic. Elle demande à ZeDART d'effacer les pistes
     //      actuellement fournies par ce plugin.
