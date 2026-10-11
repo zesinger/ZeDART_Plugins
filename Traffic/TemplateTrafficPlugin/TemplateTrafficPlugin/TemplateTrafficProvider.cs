@@ -87,12 +87,56 @@ public sealed class TemplateTrafficProvider : IZeDartRuntimeUI
     // DE : ERFORDERLICH — Gibt an, ob die Verkehrsdaten live oder wiedergegeben sind.
     public TrafficTimeMode TimeMode => TrafficTimeMode.RealTime;
 
-    // FR : OBLIGATOIRE — Heure UTC correspondant aux données de trafic actuelles.
-    // EN : MANDATORY — UTC time corresponding to the current traffic data.
-    // ES : OBLIGATORIO — Hora UTC correspondiente a los datos de tráfico actuales.
-    // DE : ERFORDERLICH — UTC-Zeit der aktuellen Verkehrsdaten.
+    // FR : OBLIGATOIRE — Heure UTC de référence utilisée par ZeDART.
+    //      En temps réel : heure UTC actuelle de réception.
+    //      En rejeu : timestamp réellement atteint dans l'enregistrement.
+    // EN : MANDATORY — UTC reference time used by ZeDART.
+    //      Live: current UTC reception time.
+    //      Replay: timestamp actually reached in the recording.
+    // ES : OBLIGATORIO — Hora UTC de referencia utilizada por ZeDART.
+    //      En tiempo real: hora UTC actual de recepción.
+    //      En reproducción: marca de tiempo alcanzada en la grabación.
+    // DE : ERFORDERLICH — Von ZeDART verwendete UTC-Referenzzeit.
+    //      Live: aktuelle UTC-Empfangszeit.
+    //      Replay: tatsächlich erreichte Zeit in der Aufzeichnung.
     public DateTime CurrentTrafficTimeUtc => DateTime.UtcNow;
 
+    // FR : OBLIGATOIRE — Heure UTC fournie par la source de trafic.
+    //      Retournez null si la source ne fournit pas de timestamp.
+    //      Cette heure peut être différente de CurrentTrafficTimeUtc.
+    // EN : MANDATORY — UTC time provided by the traffic source.
+    //      Return null if the source does not provide a timestamp.
+    //      This time may differ from CurrentTrafficTimeUtc.
+    // ES : OBLIGATORIO — Hora UTC proporcionada por la fuente de tráfico.
+    //      Devuelva null si la fuente no proporciona una marca de tiempo.
+    //      Esta hora puede diferir de CurrentTrafficTimeUtc.
+    // DE : ERFORDERLICH — Von der Verkehrsquelle gelieferte UTC-Zeit.
+    //      Geben Sie null zurück, wenn die Quelle keinen Zeitstempel liefert.
+    //      Diese Zeit kann von CurrentTrafficTimeUtc abweichen.
+    public DateTime? CurrentSourceTimeUtc => null;
+
+    // FR : OBLIGATOIRE — Écart en secondes entre l'heure de la source
+    //      et l'heure de référence utilisée par ZeDART.
+    //      Calcul : CurrentSourceTimeUtc - CurrentTrafficTimeUtc.
+    //      Une valeur négative indique un retard de la source.
+    //      Retournez null si l'heure source est inconnue.
+    // EN : MANDATORY — Difference in seconds between the source time
+    //      and the reference time used by ZeDART.
+    //      Calculation: CurrentSourceTimeUtc - CurrentTrafficTimeUtc.
+    //      A negative value indicates that the source is behind.
+    //      Return null if the source time is unknown.
+    // ES : OBLIGATORIO — Diferencia en segundos entre la hora de la fuente
+    //      y la hora de referencia utilizada por ZeDART.
+    //      Cálculo: CurrentSourceTimeUtc - CurrentTrafficTimeUtc.
+    //      Un valor negativo indica un retraso de la fuente.
+    //      Devuelva null si se desconoce la hora de la fuente.
+    // DE : ERFORDERLICH — Zeitdifferenz in Sekunden zwischen der Quellzeit
+    //      und der von ZeDART verwendeten Referenzzeit.
+    //      Berechnung: CurrentSourceTimeUtc - CurrentTrafficTimeUtc.
+    //      Ein negativer Wert bedeutet, dass die Quelle zurückliegt.
+    //      Geben Sie null zurück, wenn die Quellzeit unbekannt ist.
+    public double? CurrentSourceTimeOffsetSeconds => null;
+    
     // FR : OBLIGATOIRE — État actuel de la source de trafic.
     //      Color définit la couleur de l'indicateur de la source dans ZeDART.
     //      Text fournit un message affiché en info-bulle, par exemple pour décrire
